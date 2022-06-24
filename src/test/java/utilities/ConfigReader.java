@@ -12,7 +12,7 @@ public class ConfigReader {
     // once ona ulasmaliyiz
 
     static { // static blok her seyden once calisir
-        String dosyaYolu="configuration.properties";
+        String dosyaYolu="src/configuration.properties";
 
         try {
             FileInputStream fis=new FileInputStream(dosyaYolu); // fis dosyayolu tanimladigimiz configuration.properties dosyasini okudu
