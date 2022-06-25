@@ -1,4 +1,23 @@
 package pages;
 
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import utilities.Driver;
+
 public class SiparislerPage {
+
+
+
+    public SiparislerPage(){
+        PageFactory.initElements(Driver.getDriver(),"this");
+    }
+    @FindBy(xpath = "i[@class='w-icon-long-arrow-right'])[5]")
+    public static WebElement orders;
+
+    @FindBy(xpath = "//p[text()='Siparişler']")
+    public WebElement siparislerButonu;
+
+    @FindBy(xpath = "//a[@href='https://tradylinn.com/shop/'])[1]")
+    public static WebElement urunlereGozAt;
 }
