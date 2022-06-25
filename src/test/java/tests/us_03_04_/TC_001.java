@@ -42,7 +42,5 @@ public class TC_001 {
         SepeteUrunEkle.dorduncuUrunSepeteEkle.click();
         SepeteUrunEkle.besinciUrunSepeteEkle.click();
 
-
-
     }
 }
