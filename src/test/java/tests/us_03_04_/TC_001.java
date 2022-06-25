@@ -1,8 +1,6 @@
 package tests.us_03_04_;
 
-import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
-import pages.HesabimPage;
 import pages.LoginPage;
 import pages.SepeteUrunEkle;
 import pages.SiparislerPage;
