@@ -1,9 +1,6 @@
 package tests.us_05_06_07;
 
-import com.github.javafaker.Faker;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -13,12 +10,11 @@ import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethod;
 
-import java.util.Random;
+import java.util.*;
 
 public class UrunEkleme {
     UrunlerPage urunlerPage = new UrunlerPage();
     Actions actions = new Actions(Driver.getDriver());
-    Faker faker = new Faker();
 
     @Test
     public void TestUrunEkleme() {
@@ -33,17 +29,24 @@ public class UrunEkleme {
         urunlerPage.urunler.click();
         actions.sendKeys(Keys.PAGE_DOWN).perform();
 
-        // 4- kullanici Status, Stock, Price ve Date basliklarini dogrular
+        // 4- kullanici Status, Stock, Price ve Date basliklarini urun eklenebildigini dogrular
 
+        // Status
         Assert.assertTrue(urunlerPage.status.isDisplayed());
+        // Stock
         Assert.assertTrue(urunlerPage.stock.isDisplayed());
+        // Price
         Assert.assertTrue(urunlerPage.price.isDisplayed());
+        // Date
         Assert.assertTrue(urunlerPage.date.isDisplayed());
+        // giris yapilan urun miktari sonucu
+        Assert.assertTrue(urunlerPage.girilenUrunMiktariSonucu.isDisplayed());
 
         // 5- kullanici Add New Product butonuna tiklar
         urunlerPage.addNewProduct.click();
 
         // 6- kullanici Virtual, Downloadable butonlari oldugunu dogrular ve Virtual'e tiklar
+
         actions.sendKeys(Keys.PAGE_DOWN).perform();
         Assert.assertTrue(urunlerPage.virtual.isDisplayed());
         Assert.assertTrue(urunlerPage.downloadable.isDisplayed());
@@ -51,7 +54,9 @@ public class UrunEkleme {
         urunlerPage.virtual.click();
         ReusableMethod.waitFor(3);
 
-        // 7- kullanici urun adi olarak "Hasir Sapka", Fiyat olarak da "60" TL girer ve etkin oldugunu dogrular
+        // 7- kullanici urun adi olarak "Hasir Sapka", Fiyat olarak da "60" TL girer
+        // ve giris yapilabildigini dogrular
+
         actions.click(urunlerPage.productTitle)
                 .sendKeys(ConfigReader.getProperty("productTitle")).perform();
 
@@ -62,6 +67,7 @@ public class UrunEkleme {
         Assert.assertTrue(urunlerPage.productPrice.isEnabled());
 
         // 8- kullanici urun resmi ekler ve eklediğini dogrular
+
         urunlerPage.imgAdd1.click();
         urunlerPage.ortamKutuphanesi.click();
         urunlerPage.img1.click();
@@ -96,37 +102,54 @@ public class UrunEkleme {
         actions.sendKeys(Keys.PAGE_UP).perform();
         Driver.getDriver().switchTo().defaultContent();
 
-        // 10- Kullanici Store Manager olarak, ekledigi urunun kategorilerini belirler
-
+        // 10- Kullanici Store Manager olarak, urun kategorilerini dogrular
         // Kategoriler: Besin takviyeleri, Cok satanlar, Elektrik & Elektronik, Ev & yasam, Indirimli ürünler,
         // Kitap & müzik &Film, Kozmetik & kisisel, Moda & Giyim, Oyuncak, Taki & aksesuar, Yeni ürünler
 
-        actions.sendKeys(Keys.ARROW_UP).perform();
-/*
-        ArrayList<String> eklenebilirKategoriler = new ArrayList<>(Arrays.asList("Besin Takviyeleri", "Çok Satanlar",
+        // expected Categories
+        List<String> expectedCategories = new ArrayList<>(Arrays.asList("Besin Takviyeleri", "Çok Satanlar",
                 "Elektrik & Elektronik", "Ev & Yaşam", "İndirimli Ürünler", "Kitap & Müzik & Film",
-                "Kozmatik & Kişisel", "Moda & Giyim", "Oyuncak", "Takı & Aksesuar", "Yeni Ürünler"));
+                "Kozmatik & Kişisel Bakım", "Moda & Giyim", "Oyuncak", "Takı & Aksesuar", "Yeni Ürünler"));
 
-        ArrayList<String> tumKategoriler = new ArrayList<>();
-        for (WebElement each : urunlerPage.categories
-        ) {
-            tumKategoriler.add(each.getText());
+        System.out.println("expectedCategories = " + expectedCategories);
+
+        // actual Categories
+        List<String> actualCategories = new ArrayList<>();
+        for (int i = 0; i < urunlerPage.categories.size(); i++) {
+            if (expectedCategories.contains(urunlerPage.categories.get(i).getText())) {
+                actualCategories.add(urunlerPage.categories.get(i).getText());
+            }
         }
 
-      Random random = new Random();
-        int sayi = random.nextInt(urunlerPage.categoriesButton.size());
-        System.out.println(sayi + 1);
-        WebElement isaretli = urunlerPage.categoriesButton.get(sayi + 1);
+        System.out.println("actualCategories = " + actualCategories);
 
-        ReusableMethod.waitFor(3);
-        while (isaretli.isSelected()){
-            if (!isaretli.isSelected()) {
-                actions.sendKeys(Keys.PAGE_DOWN).perform();
-                isaretli.click();
-            }else isaretli.click();
+        // Test
+        Assert.assertEquals(actualCategories, expectedCategories, "istenen urun kategorileri sitede mevcut");
+        actions.sendKeys(Keys.PAGE_UP).perform();
+
+        // 11- Kullanici Store Manager olarak, urun markalarını dogrular
+        //Markalar: Elegant Auto group,Green Grass,Node JS, NS8, RED, SkySuite Tech, Sterling
+
+        // expected Brands
+        List<String> expectedBrands = new ArrayList<>(Arrays.asList("Elegant Auto Group", "Green Grass", "Node Js",
+                "NS8", "RED", "Skysuite Tech", "Sterling"));
+        System.out.println("expectedBrands = " + expectedBrands);
+
+        // actual Brands
+        List<String> actualBrands = new ArrayList<>();
+        for (int i = 0; i < urunlerPage.brands.size(); i++) {
+            if (expectedBrands.contains(urunlerPage.brands.get(i).getText())) {
+                actualBrands.add(urunlerPage.brands.get(i).getText());
+            }
         }
 
-*/
+        System.out.println("actualBrands = " + actualBrands);
 
+        // Test
+        Assert.assertEquals(actualBrands, expectedBrands, "istenen urun markalari sitede mevcut");
+
+        // 12- yeter artık! Kullanici sayfayi kapatsin :)
+
+        Driver.closeDriver();
     }
 }
