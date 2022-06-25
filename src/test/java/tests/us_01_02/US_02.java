@@ -11,7 +11,7 @@ public class US_02 {
     HesabimPage hesabimPage = new HesabimPage();
 
     @Test
-    public void HesabimTest01() {
+    public void HesabimTest01() throws InterruptedException {
 
         // 01. kullanici  'https://tradylinn.com' url'sine gider
         Driver.getDriver().get(ConfigReader.getProperty("tradylinnUrl"));
@@ -26,6 +26,7 @@ public class US_02 {
         //05. kullanici giris yap butonuna tiklar
         loginPage.hesabagirisYap.click();
 
+        Thread.sleep(8000);
         //06. kullanici anasayfadan 'My Account' sekmesine tiklar
         loginPage.hesabim.click();
 
@@ -36,7 +37,7 @@ public class US_02 {
     }
 
     @Test
-    public void HesabimTest02() {
+    public void HesabimTest02() throws InterruptedException {
 
         // 01. kullanici  'https://tradylinn.com' url'sine gider
         Driver.getDriver().get(ConfigReader.getProperty("tradylinnUrl"));
@@ -50,6 +51,8 @@ public class US_02 {
         loginPage.passwordBox.sendKeys(ConfigReader.getProperty("validPassword"));
         //05. kullanici giris yap butonuna tiklar
         loginPage.hesabagirisYap.click();
+
+        Thread.sleep(8000);
 
         //06. kullanici anasayfadan 'My Account' sekmesine tiklar
         loginPage.hesabim.click();
@@ -68,7 +71,7 @@ public class US_02 {
 
     }
     @Test
-    public void HesabimTest03() {
+    public void HesabimTest03() throws InterruptedException {
 
         // 01. kullanici  'https://tradylinn.com' url'sine gider
         Driver.getDriver().get(ConfigReader.getProperty("tradylinnUrl"));
@@ -82,6 +85,7 @@ public class US_02 {
         loginPage.passwordBox.sendKeys(ConfigReader.getProperty("validPassword"));
         //05. kullanici giris yap butonuna tiklar
         loginPage.hesabagirisYap.click();
+        Thread.sleep(8000);
 
         //06. kullanici anasayfadan 'My Account' sekmesine tiklar
         loginPage.hesabim.click();
@@ -100,7 +104,7 @@ public class US_02 {
 
     }
     @Test
-    public void HesabimTest04() {
+    public void HesabimTest04() throws InterruptedException {
 
         // 01. kullanici  'https://tradylinn.com' url'sine gider
         Driver.getDriver().get(ConfigReader.getProperty("tradylinnUrl"));
@@ -114,6 +118,7 @@ public class US_02 {
         loginPage.passwordBox.sendKeys(ConfigReader.getProperty("validPassword"));
         //05. kullanici giris yap butonuna tiklar
         loginPage.hesabagirisYap.click();
+        Thread.sleep(8000);
 
         //06. kullanici anasayfadan 'My Account' sekmesine tiklar
         loginPage.hesabim.click();
