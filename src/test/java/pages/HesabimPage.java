@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
 public class HesabimPage {
-<<<<<<< Updated upstream
+
     public HesabimPage(){
 
         PageFactory.initElements(Driver.getDriver(), this);
@@ -69,18 +69,6 @@ public class HesabimPage {
     @FindBy(xpath = "//li[@class='woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--customer-logout']")
     public WebElement dBLogoutGorunum;
 
-
-
-
-
-=======
-    public HesabimPage() {
-        PageFactory.initElements(Driver.getDriver(), "this");
-    }
-
-    @FindBy(xpath = "//div[@class='product-archive']")
-    public WebElement urunlerSayfasi;
->>>>>>> Stashed changes
 }
 
 
