@@ -4,6 +4,7 @@ import org.testng.annotations.Test;
 import pages.*;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethod;
 
 public class TC_002 {
     @Test
@@ -21,6 +22,7 @@ public class TC_002 {
 
         // 4) kullanici giris yap butonuna tiklar
         loginPage.hesabagirisYap.click();
+        ReusableMethod.waitFor(40);
 
         // 5. Kullanıcı 'Siparişlerim sekmesini tıklamalı
         SiparislerPage.orders.click();

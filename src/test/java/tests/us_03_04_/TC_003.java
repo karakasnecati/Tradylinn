@@ -36,7 +36,7 @@ public class TC_003 {
         SepeteUrunEkle.besinciUrunSepeteEkle.click();
 
         // 8. Kullanici Sepete gidebilmeli
-        HesabimPage.sepetimButonu.click();
+        SepetPage.sepetimButonu.click();
 
         // 9. Kullanıcı ödeme sayfasına gidebilmeli
         SepetPage.odemeButonu.click();
