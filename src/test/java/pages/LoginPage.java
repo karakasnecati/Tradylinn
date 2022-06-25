@@ -25,4 +25,5 @@ public class LoginPage {
 
     @FindBy(xpath = "//li[@id='menu-item-1074']")
     public WebElement hesabim;
+
 }

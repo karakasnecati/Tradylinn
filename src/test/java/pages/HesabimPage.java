@@ -4,7 +4,13 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import utilities.Driver;
+
 public class HesabimPage {
+<<<<<<< Updated upstream
     public HesabimPage(){
 
         PageFactory.initElements(Driver.getDriver(), this);
@@ -67,6 +73,14 @@ public class HesabimPage {
 
 
 
+=======
+    public HesabimPage() {
+        PageFactory.initElements(Driver.getDriver(), "this");
+    }
+
+    @FindBy(xpath = "//div[@class='product-archive']")
+    public WebElement urunlerSayfasi;
+>>>>>>> Stashed changes
 }
 
 
