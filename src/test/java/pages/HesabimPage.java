@@ -11,6 +11,9 @@ import utilities.Driver;
 
 public class HesabimPage {
 
+
+
+
     public HesabimPage(){
 
         PageFactory.initElements(Driver.getDriver(), this);
@@ -68,6 +71,10 @@ public class HesabimPage {
 
     @FindBy(xpath = "//li[@class='woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--customer-logout']")
     public WebElement dBLogoutGorunum;
+
+
+
+
 
 }
 

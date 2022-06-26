@@ -40,4 +40,10 @@ public class MusteriPage {
     @FindBy(xpath = "//input[@name='submit-data']")
     public WebElement submitDataButoon;
 
+    @FindBy(xpath = "//input[@name='submit-data']")
+    public WebElement ubmitDataButoon;
+
+    @FindBy(xpath = "//input[@name='submit-data']")
+    public WebElement submitDataButoo;
+
 }
