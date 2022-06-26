@@ -94,4 +94,69 @@ public class UrunlerPage {
 
 
 
+
+
+
+
+
+
+    // hanife
+    @FindBy(xpath = "//div[@id='wcfm_products_manage_form_inventory_head']")
+    public WebElement inventory;
+
+    @FindBy(xpath = "//input[@id='manage_stock']")
+    public WebElement manageStockButonu;
+
+    @FindBy(xpath = "//select[@id='backorders']")
+    public WebElement allowBackordersButonu;
+
+    @FindBy(xpath = "//input[@id='stock_qty']")
+    public WebElement stockQtyButonu;
+
+    @FindBy(xpath = "//div[@id='wcfm_products_manage_form_shipping_head']")
+    public WebElement shipping;
+
+    @FindBy(xpath = "//input[@id='weight']")
+    public WebElement weight;
+
+    @FindBy(xpath = "//input[@id='length']")
+    public WebElement length;
+
+    @FindBy(xpath = "//input[@id='width']")
+    public WebElement width;
+
+    @FindBy(xpath = "//input[@id='height']")
+    public WebElement height;
+
+    @FindBy(xpath = "//select[@id='_wcfmmp_processing_time']")
+    public WebElement ProcessingTimeButonu;
+
+    @FindBy(xpath = "(//div[@class='page_collapsible_content_holder'])[9]")
+    public WebElement attributesButonu;
+
+    @FindBy(xpath = "//input[@id='attributes_is_active_1']")
+    public WebElement collorButonu;
+
+    @FindBy(xpath = "//select[@id='attributes_value_1']")
+    public WebElement colorSecme;
+
+
+    @FindBy(xpath = "(//div[@class='page_collapsible_content_holder'])[13]")
+    public WebElement toptanGostermeAyarlari;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
