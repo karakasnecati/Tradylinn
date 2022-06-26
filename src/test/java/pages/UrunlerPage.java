@@ -31,6 +31,9 @@ public class UrunlerPage {
     @FindBy(xpath = "(//*[text()='Date'])[1]")
     public WebElement date;
 
+    @FindBy(xpath = "//a[@class='active']")
+    public WebElement girilenUrunMiktariSonucu;
+
     @FindBy(xpath = "//*[text()='Yeni ekle']")
     public WebElement addNewProduct;
 
@@ -85,8 +88,8 @@ public class UrunlerPage {
     @FindBy(xpath = "//*[@id='product_cats_checklist']/li")
     public  List<WebElement> categories;
 
-    @FindBy(xpath = "//*[@id='product_cats_checklist']/li/input")
-    public  List<WebElement> categoriesButton;
+    @FindBy(xpath = "//*[@id='product_brand']/li")
+    public  List<WebElement> brands;
 
 
 
