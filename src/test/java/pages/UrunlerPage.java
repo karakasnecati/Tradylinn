@@ -31,7 +31,7 @@ public class UrunlerPage {
     @FindBy(xpath = "(//*[text()='Date'])[1]")
     public WebElement date;
 
-    @FindBy(xpath = "//div[@id='wcfm-products_info']")
+    @FindBy(xpath = "//a[@class='active']")
     public WebElement girilenUrunMiktariSonucu;
 
     @FindBy(xpath = "//*[text()='Yeni ekle']")

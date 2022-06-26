@@ -39,6 +39,7 @@ public class UrunEkleme {
         Assert.assertTrue(urunlerPage.price.isDisplayed());
         // Date
         Assert.assertTrue(urunlerPage.date.isDisplayed());
+        ReusableMethod.waitFor(3);
         // giris yapilan urun miktari sonucu
         Assert.assertTrue(urunlerPage.girilenUrunMiktariSonucu.isDisplayed());
 
@@ -122,7 +123,6 @@ public class UrunEkleme {
         }
 
         System.out.println("actualCategories = " + actualCategories);
-
         // Test
         Assert.assertEquals(actualCategories, expectedCategories, "istenen urun kategorileri sitede mevcut");
         actions.sendKeys(Keys.PAGE_UP).perform();
