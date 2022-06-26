@@ -27,7 +27,9 @@ public class US_16_17_18_methods {
         loginPage.hesabagirisYap.click();
         ReusableMethod.waitFor(10);
         loginPage.hesabim.click();
-
+        musteriPage.storeManagerButton.click();
+        musteriPage.costumersButton.click();
     }
+
 
 }
