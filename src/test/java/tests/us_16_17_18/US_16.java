@@ -26,7 +26,7 @@ public class US_16 {
     }
     @AfterMethod
     public void tearDown() {
-        //Driver.closeDriver();
+        Driver.closeDriver();
     }
 
     @Test
@@ -54,6 +54,7 @@ public class US_16 {
         Actions actions=new Actions(Driver.getDriver());
         Faker faker = new Faker();
         musteriPage=new MusteriPage();
+        int satirsayisi1=musteriPage.satirlarList.size();
         musteriPage.yeniEkleButton.click();
         actions.click(musteriPage.userNameBox).sendKeys(faker.name().username())
                 .sendKeys(Keys.TAB)
@@ -66,6 +67,11 @@ public class US_16 {
 
         JavascriptExecutor js=(JavascriptExecutor)Driver.getDriver();
         js.executeScript("arguments[0].click();",musteriPage.submitDataButoon);
+        ReusableMethod.waitFor(5);
+        js.executeScript("arguments[0].click();",musteriPage.costumersButton);
+        ReusableMethod.waitFor(5);
+        int satirSayisi2=musteriPage.satirlarList.size();
+        Assert.assertTrue(satirSayisi2>satirsayisi1);
 
     }
 }
