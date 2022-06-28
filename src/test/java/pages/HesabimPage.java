@@ -37,8 +37,7 @@ public class HesabimPage {
     public WebElement storeManagerGorunum;
 
     @FindBy(xpath = "//a[@href='https://tradylinn.com/my-account-2/orders/']")
-    public WebElement dBOrdersGorunum;
-
+    public static WebElement dBOrdersGorunum;
 
     @FindBy(xpath = "//a[@href='https://tradylinn.com/my-account-2/downloads/']")
     public WebElement dBDownloadsGorunum;
