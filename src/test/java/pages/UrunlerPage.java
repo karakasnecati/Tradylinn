@@ -97,12 +97,15 @@ public class UrunlerPage {
 
 
 
+
+
+
+
     // hanife
+    @FindBy(xpath = "//input[@id='manage_stock']")
+    public WebElement manageStock;
     @FindBy(xpath = "//div[@id='wcfm_products_manage_form_inventory_head']")
     public WebElement inventory;
-
-    @FindBy(xpath = "//input[@id='manage_stock']")
-    public WebElement manageStockButonu;
 
     @FindBy(xpath = "//select[@id='backorders']")
     public WebElement allowBackordersButonu;
@@ -112,6 +115,11 @@ public class UrunlerPage {
 
     @FindBy(xpath = "//div[@id='wcfm_products_manage_form_shipping_head']")
     public WebElement shipping;
+
+    @FindBy(xpath = "//p[*='Dimensions (cm)']")
+    public WebElement dimensions;
+    @FindBy(xpath = "//p[@class='_wcfmmp_processing_time wcfm_title']")
+    public WebElement  processingTimeYazisi;
 
     @FindBy(xpath = "//input[@id='weight']")
     public WebElement weight;
@@ -126,10 +134,16 @@ public class UrunlerPage {
     public WebElement height;
 
     @FindBy(xpath = "//select[@id='_wcfmmp_processing_time']")
-    public WebElement ProcessingTimeButonu;
+    public WebElement processingTimeButonu;
 
     @FindBy(xpath = "(//div[@class='page_collapsible_content_holder'])[9]")
     public WebElement attributesButonu;
+
+    @FindBy(xpath = "//p[*='Attributes']")
+    public WebElement attributesYazisi;
+
+    @FindBy(xpath = "//input[@id='attributes_is_active_1']")
+    public WebElement activeButonu;
 
     @FindBy(xpath = "//input[@id='attributes_is_active_1']")
     public WebElement collorButonu;
@@ -137,9 +151,26 @@ public class UrunlerPage {
     @FindBy(xpath = "//select[@id='attributes_value_1']")
     public WebElement colorSecme;
 
+    @FindBy(xpath = "//input[@id='attributes_is_active_2']")
+    public WebElement sizeActiveButonu;
 
-    @FindBy(xpath = "(//div[@class='page_collapsible_content_holder'])[13]")
-    public WebElement toptanGostermeAyarlari;
+    @FindBy(xpath = "//input[@id='attributes_is_active_2']")
+    public WebElement sizeButonu;
+
+
+    //@FindBy(xpath = "//label[@class='wcfmfa fa-certificate']")
+    //public WebElement toptanUrunSecme;
+    @FindBy(xpath = "//*[@id=\"wcfm_products_manage_form_toptan-urun-gosterme-ayarlari_head\"]/div")
+    public WebElement toptanUrunSecme;
+
+    @FindBy(xpath = "//select[@id='piecetype']")
+    public WebElement pieceTypebutonu;
+
+    @FindBy(xpath = "//input[@id='unitpercart']")
+    public WebElement unitsPerPieceButonu;
+
+    @FindBy(xpath = "//input[@id='minorderqtytr']")
+    public WebElement minOrderQuantityButonu;
 
 
 
