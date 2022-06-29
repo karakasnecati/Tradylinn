@@ -5,15 +5,12 @@ import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
 public class HesabimPage {
-<<<<<<< HEAD
-    public HesabimPage() {
-=======
 
 
 
 
     public HesabimPage(){
->>>>>>> aea97c7835987e31a79148177789476ffa7249ec
+
 
         PageFactory.initElements(Driver.getDriver(), this);
 
@@ -70,14 +67,7 @@ public class HesabimPage {
 
     @FindBy(xpath = "//li[@class='woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--customer-logout']")
     public WebElement dBLogoutGorunum;
-<<<<<<< HEAD
-=======
 
-
-
-
-
->>>>>>> aea97c7835987e31a79148177789476ffa7249ec
 }
 
 
