@@ -8,8 +8,11 @@ import utilities.Driver;
 public class US_02 {
 
     LoginPage loginPage = new LoginPage();
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> 4ec5c0c7321787b68071716ed4794fe63b71670e
     HesabimPage hesabimPage = new HesabimPage();
 
     @Test

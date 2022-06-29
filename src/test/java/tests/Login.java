@@ -25,5 +25,6 @@ public class Login {
 
         // 5) kullanici hesabım sayfasina tiklar
         loginPage.hesabim.click();
+
     }
 }

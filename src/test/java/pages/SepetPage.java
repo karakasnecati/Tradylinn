@@ -4,9 +4,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
+<<<<<<< HEAD
+
+public class SepetPage {
+=======
 
 public class SepetPage {
 
+>>>>>>> 4ec5c0c7321787b68071716ed4794fe63b71670e
     public SepetPage() {
         PageFactory.initElements(Driver.getDriver(), "this");
     }
@@ -18,6 +23,12 @@ public class SepetPage {
     public static WebElement sepetimButonu;
 
     @FindBy (xpath = "//a[@class='button wc-forward']")
+<<<<<<< HEAD
+    public WebElement sepetiGoruntuleButonu;
+
+    @FindBy (xpath = "//tr[@class='woocomerce-cart-form__cart-item cart-item']")
+    public WebElement sepetIcerik;
+=======
     public static WebElement sepetiGoruntuleButonu;
 
     @FindBy (xpath = "//tr[@class='woocomerce-cart-form__cart-item cart-item']")
@@ -71,4 +82,5 @@ public class SepetPage {
     @FindBy (xpath = "//div[@class='woocommerce-billing-fields']")
     public static WebElement faturaDetaylariAlani;
 
+>>>>>>> 4ec5c0c7321787b68071716ed4794fe63b71670e
 }
