@@ -6,9 +6,8 @@ import org.testng.annotations.Test;
 import pages.IndirimlerPage;
 import utilities.ConfigReader;
 import utilities.Driver;
-import utilities.TestBaseRapor;
 
-public class TC_001  {
+public class TumunuGorme {
 
 
     //01_kullanici https://tradylinn.com/ adresine gider

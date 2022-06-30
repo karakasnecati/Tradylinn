@@ -1,4 +1,4 @@
-package tests.us_019_020_021;
+package tests.us_19_20_21;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
@@ -10,7 +10,7 @@ import utilities.Driver;
 import utilities.ReusableMethod;
 import utilities.TestBaseRapor;
 
-public class TC_001 extends TestBaseRapor {
+public class TakipcileriGorme extends TestBaseRapor {
     TakipcilerPage takipcilerPage;
     Actions actions= new Actions(Driver.getDriver());
     @Test

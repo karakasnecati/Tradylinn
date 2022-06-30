@@ -6,12 +6,10 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.KuponPage;
 import tests.Login;
-import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethod;
-import utilities.ReusableMethod;
 
-public class US13_14_15 {
+public class KuponOlusturma {
 
     Actions actions = new Actions(Driver.getDriver());
     KuponPage kuponPage = new KuponPage();

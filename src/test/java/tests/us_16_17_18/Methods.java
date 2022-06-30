@@ -9,7 +9,7 @@ import utilities.Driver;
 import utilities.ReusableMethod;
 import java.util.List;
 
-public class US_16_17_18_methods {
+public class Methods {
 
 
 

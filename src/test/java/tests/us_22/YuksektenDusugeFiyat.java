@@ -12,14 +12,13 @@ import utilities.Driver;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class TC_003 {
+public class YuksektenDusugeFiyat {
+    IndirimlerPage ip=new IndirimlerPage();
+
+    //01_kullanici https://tradylinn.com/ adresine gider
+
     @Test
     public void test01() throws InterruptedException {
-
-        IndirimlerPage ip = new IndirimlerPage();
-
-        //01_kullanici https://tradylinn.com/ adresine gider
-
         Driver.getDriver().get(ConfigReader.getProperty("tradylinnUrl"));
 
         //02_kullanici anasayfada İndirimli Ürünler de Tümünü gör e tıklar
@@ -31,19 +30,15 @@ public class TC_003 {
         ip.tumunuGorLink.click();
         Thread.sleep(2000);
 
+        //03_kullanici Sırala cubugunda "Fiyata göre sırala: Yüksekten düşüğe"
+        // seçildiğinde fiyatların büyükten küçüğe gore sıralandıgını test eder
 
-        //"
-        //03_kullanici Sırala cubugunda "Fiyata göre sırala: Düşükten yükseğe"
-        // seçildiğinde fiyatların kucukten buyuge gore sıralandıgını test eder
-
-        Select select = new Select(ip.dropdownElment);
-        select.selectByIndex(5);
-
+        Select select=new Select(ip.dropdownElment);
+        select.selectByIndex(6);
 
         ArrayList<Double> urunlerDouble = new ArrayList<>();
 
-        for (
-                WebElement each : ip.urunlerListesi
+        for (WebElement each : ip.urunlerListesi
         ) {
             String fıyatStr = each.getText().replaceAll("^\\D", "");
 
@@ -51,10 +46,8 @@ public class TC_003 {
 
         }
         ArrayList<Double> KONTROLLIST = new ArrayList<>(urunlerDouble);
-        Collections.sort(KONTROLLIST);
+        Collections.sort(KONTROLLIST, Collections.reverseOrder());
 
         Assert.assertEquals(KONTROLLIST, urunlerDouble);
     }
-
-
 }

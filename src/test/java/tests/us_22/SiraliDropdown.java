@@ -8,7 +8,7 @@ import pages.IndirimlerPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 
-public class TC_002 {
+public class SiraliDropdown {
     IndirimlerPage ip=new IndirimlerPage();
 
     //01_kullanici https://tradylinn.com/ adresine gider

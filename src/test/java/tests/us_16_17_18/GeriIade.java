@@ -5,13 +5,13 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import utilities.Driver;
 
-public class US_18 {
+public class GeriIade {
 
-    US_16_17_18_methods methods;
+    Methods methods;
 
     @BeforeMethod
     public void setUp() {
-        US_16_17_18_methods.refundRequestGiris();
+        Methods.refundRequestGiris();
     }
     @AfterMethod
     public void tearDown() {
@@ -21,7 +21,7 @@ public class US_18 {
     @Test
     public void US18_TC001() {
 
-        methods = new US_16_17_18_methods();
+        methods = new Methods();
         methods.refundListPrint("Request ID");
     }
 
@@ -29,14 +29,14 @@ public class US_18 {
     public void US18_TC002() {
 
 
-        methods = new US_16_17_18_methods();
+        methods = new Methods();
         methods.refundListPrint("Order ID");
     }
 
     @Test
     public void US18_TC003() {
 
-        methods = new US_16_17_18_methods();
+        methods = new Methods();
         methods.refundListPrint("Amount");
 
     }
@@ -44,7 +44,7 @@ public class US_18 {
     @Test
     public void US18_TC004() {
 
-        methods = new US_16_17_18_methods();
+        methods = new Methods();
         methods.refundListPrint("Type");
         methods.refundListPrint("Reason");
     }
