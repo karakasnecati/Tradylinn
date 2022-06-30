@@ -21,9 +21,10 @@ public class Login {
 
         // 4) kullanici giris yap butonuna tiklar
         loginPage.hesabagirisYap.click();
-        ReusableMethod.waitFor(10);
+       ReusableMethod.waitFor(10);
 
         // 5) kullanici hesabım sayfasina tiklar
         loginPage.hesabim.click();
+
     }
 }

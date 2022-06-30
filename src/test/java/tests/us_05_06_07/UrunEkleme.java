@@ -1,9 +1,8 @@
 package tests.us_05_06_07;
 
-import com.github.javafaker.Faker;
-import org.openqa.selenium.JavascriptExecutor;
+
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -12,121 +11,201 @@ import tests.Login;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethod;
+import utilities.TestBaseRapor;
 
-import java.util.Random;
 
-public class UrunEkleme {
+import java.util.*;
+
+
+    public class UrunEkleme extends TestBaseRapor {
     UrunlerPage urunlerPage = new UrunlerPage();
     Actions actions = new Actions(Driver.getDriver());
-    Faker faker = new Faker();
+    JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
+    WebDriver.TargetLocator iframeGecis = Driver.getDriver().switchTo();
 
-    @Test
-    public void TestUrunEkleme() {
-        // 1- Kullanici store manager olarak heabıma giris yapar
+    @Test(priority = 1)
+    public void TC_001_urun_ekleme() {
+        extentTest = extentReports.createTest("Yeni Urun Ekleme", "Kullanici Store Manager olarak, Products'a gidip urun listesini gorebilmeli");
         Login.giris();
-
-        // 2- kullanici store manager linkine tiklar
+        extentTest.info("Store Maneger olarak giris yapildi");
         urunlerPage.storeManager.click();
+        extentTest.info("Store Manager sekmesine tiklandi");
         actions.sendKeys(Keys.PAGE_DOWN).perform();
-
-        // 3- kullanici urunler sekmesine tiklar
         urunlerPage.urunler.click();
+        extentTest.info("Urunler sekmesine tiklandi");
         actions.sendKeys(Keys.PAGE_DOWN).perform();
+        Assert.assertTrue(urunlerPage.sayfaBasligi.isDisplayed());
+        extentTest.pass("Kullanici basarili bir sekilde sayfaya girdi");
+    }
 
-        // 4- kullanici Status, Stock, Price ve Date basliklarini dogrular
+    @Test(priority = 2)
+    public void TC_002_ekli_urun_bilgileri() {
+        extentTest = extentReports.createTest("Urun Bilgisi Detaylari",
+                "Productsta urun listemi görmeliyim; status, stock, price, date");
+        List<WebElement> urunBaslikListesi = urunlerPage.urunBilgileriHead;
+        int istenenBaslikIndexi = -3;
+        for (int i = 0; i < urunBaslikListesi.size(); i++) {
+            if (urunBaslikListesi.get(i).getText().equals(ConfigReader.getProperty("urunBaslik"))) {
+                istenenBaslikIndexi = i + 1;
+                break;
+            }
+        }
+        extentTest.info("İstenen urun basligi bilgisi girildi");
+        if (istenenBaslikIndexi != -3) {
+            List<WebElement> istenenSutundakiElementler =
+                    Driver.getDriver().findElements(By.xpath("//tbody//tr//td[" + istenenBaslikIndexi + "]"));
+            for (WebElement each : istenenSutundakiElementler
+            ) {
+                System.out.println(ConfigReader.getProperty("urunBaslik") + " basliktaki urun bilgileri: " + each.getText());
+                extentTest.info("Istenen basliktaki biligiler yazdirildi");
+                Assert.assertTrue(each.isDisplayed(), "istenen basliktaki urun bilgileri goruntulendi");
+                extentTest.pass("Kullanici istenen urun basligi biligilerini goruntuledi");
+            }
+        } else {
+            System.out.println("istenen baslik bulunamadi");
+        }
+    }
 
-        Assert.assertTrue(urunlerPage.status.isDisplayed());
-        Assert.assertTrue(urunlerPage.stock.isDisplayed());
-        Assert.assertTrue(urunlerPage.price.isDisplayed());
-        Assert.assertTrue(urunlerPage.date.isDisplayed());
-
-        // 5- kullanici Add New Product butonuna tiklar
+    @Test(priority = 3)
+    public void TC_003_virtual_downloadable() {
+        extentTest = extentReports.createTest("Virtual, Downloadable",
+                "Urun icin virtual veya downloadable secenegi olmali");
         urunlerPage.addNewProduct.click();
-
-        // 6- kullanici Virtual, Downloadable butonlari oldugunu dogrular ve Virtual'e tiklar
+        extentTest.info("Yeni urun ekle tiklandi");
         actions.sendKeys(Keys.PAGE_DOWN).perform();
-        Assert.assertTrue(urunlerPage.virtual.isDisplayed());
-        Assert.assertTrue(urunlerPage.downloadable.isDisplayed());
-
         urunlerPage.virtual.click();
-        ReusableMethod.waitFor(3);
+        extentTest.info("Virtual butonu tiklandi");
+        Assert.assertTrue(urunlerPage.virtual.isSelected());
+        extentTest.pass("Virtual butonu secildi");
+        Assert.assertTrue(urunlerPage.downloadable.isEnabled());
+        extentTest.pass("Virtual butonu secilebilir");
+    }
 
-        // 7- kullanici urun adi olarak "Hasir Sapka", Fiyat olarak da "60" TL girer ve etkin oldugunu dogrular
-        actions.click(urunlerPage.productTitle)
-                .sendKeys(ConfigReader.getProperty("productTitle")).perform();
-
-        actions.click(urunlerPage.productPrice)
-                .sendKeys(ConfigReader.getProperty("productPrice")).perform();
-
+    @Test(priority = 4)
+    public void TC_004_title_price() {
+        extentTest = extentReports.createTest("Urun Basligi, Urun Fiyati",
+                "Urun ismi ekle; product title, satis miktari");
+        urunlerPage.productTitle
+                .sendKeys(ConfigReader.getProperty("productTitle"));
+        extentTest.info("Urun adi girildi");
+        urunlerPage.productPrice
+                .sendKeys(ConfigReader.getProperty("productPrice"));
+        extentTest.info("Urun fiyati girildi");
         Assert.assertTrue(urunlerPage.productTitle.isEnabled());
+        extentTest.pass("Urun adi basarili bir şekilde girilebildi");
         Assert.assertTrue(urunlerPage.productPrice.isEnabled());
+        extentTest.pass("Urun fiyati basarili bir sekilde girilebildi");
+    }
 
-        // 8- kullanici urun resmi ekler ve eklediğini dogrular
+    @Test(priority = 5)
+    public void TC_005_urun_resmi() {
+        extentTest = extentReports.createTest("Urun Fotografi", "Urun fotosu eklenebilmeli");
         urunlerPage.imgAdd1.click();
+        extentTest.info("Sayfada fotograf ekle bloguna tiklandi");
         urunlerPage.ortamKutuphanesi.click();
+        extentTest.info("Ortam kütüphanesine tiklandi");
         urunlerPage.img1.click();
-        ReusableMethod.waitFor(3);
+        extentTest.info("Eklenecek ilk fotografa tiklandi");
+        ReusableMethod.waitFor(5);
         urunlerPage.secButonu.click();
+        extentTest.info("Sec butonu tiklandi");
         urunlerPage.imgAdd2.click();
+        extentTest.info("Sayfada ikinci fotograf ekle bloguna tiklandi");
         urunlerPage.img2.click();
-        ReusableMethod.waitFor(3);
+        extentTest.info("İkinci fotografa tiklandi");
+        ReusableMethod.waitFor(5);
         urunlerPage.addToGallery.click();
-
+        extentTest.info("Add To Gallery butonuna tiklandi");
         Assert.assertTrue(urunlerPage.imgDisplay.isDisplayed());
+        extentTest.pass("Urun fotografinin basarili bir sekilde eklendigi dogrulandi");
+    }
 
-        // 9- Kullanici Store Manager olarak, urune dair acıklamalar ekler ve etkin oldugunu dogrular
-
-        //shortDescription
-        Driver.getDriver().switchTo().frame(urunlerPage.iframeShortDescription);
-
+    @Test(priority = 6)
+    public void TC_006_shortDescription_description() {
+        extentTest = extentReports.createTest("Kısa ve Kapsamlı Tanimlama",
+                "Kisa tanımlama ve genis tanımlama (short description, Description)");
+        iframeGecis.frame(urunlerPage.iframeShortDescription);
         actions.click(urunlerPage.shortDescription)
                 .sendKeys(ConfigReader.getProperty("shortDescription")).perform();
-        // test
+        extentTest.info("Kisa tanimlama metin kutusuna, istenen metin girildi");
         Assert.assertTrue(urunlerPage.shortDescription.isEnabled());
-        Driver.getDriver().switchTo().defaultContent();
-        ReusableMethod.waitFor(3);
+        extentTest.pass("Metin basarili bir sekilde girildi");
+        iframeGecis.defaultContent();
+        ReusableMethod.waitFor(2);
         actions.sendKeys(Keys.PAGE_DOWN).perform();
-
-        // description
-        Driver.getDriver().switchTo().frame(urunlerPage.iframeDescription);
+        iframeGecis.frame(urunlerPage.iframeDescription);
         actions.click(urunlerPage.description)
                 .sendKeys(ConfigReader.getProperty("description")).perform();
-        // test
+        extentTest.info("Genis tanimlama metin kutusuna, istenen metin girildi");
         Assert.assertTrue(urunlerPage.description.isEnabled());
+        extentTest.pass("Metin basarili bir sekilde girildi");
+        iframeGecis.defaultContent();
         actions.sendKeys(Keys.PAGE_UP).perform();
-        Driver.getDriver().switchTo().defaultContent();
+    }
 
-        // 10- Kullanici Store Manager olarak, ekledigi urunun kategorilerini belirler
-
-        // Kategoriler: Besin takviyeleri, Cok satanlar, Elektrik & Elektronik, Ev & yasam, Indirimli ürünler,
-        // Kitap & müzik &Film, Kozmetik & kisisel, Moda & Giyim, Oyuncak, Taki & aksesuar, Yeni ürünler
-
-        actions.sendKeys(Keys.ARROW_UP).perform();
-/*
-        ArrayList<String> eklenebilirKategoriler = new ArrayList<>(Arrays.asList("Besin Takviyeleri", "Çok Satanlar",
+    @Test(priority = 7)
+    public void TC_007_categories() {
+        extentTest = extentReports.createTest("Kategori",
+                " Secilen ürünlerin kategorilerini belirlemeliyim");
+        List<String> expectedCategories = new ArrayList<>(Arrays.asList("Besin Takviyeleri", "Çok Satanlar",
                 "Elektrik & Elektronik", "Ev & Yaşam", "İndirimli Ürünler", "Kitap & Müzik & Film",
-                "Kozmatik & Kişisel", "Moda & Giyim", "Oyuncak", "Takı & Aksesuar", "Yeni Ürünler"));
-
-        ArrayList<String> tumKategoriler = new ArrayList<>();
+                "Kozmatik & Kişisel Bakım", "Moda & Giyim", "Oyuncak", "Takı & Aksesuar", "Yeni Ürünler"));
+        extentTest.info("İstenen urun kategorileri 'expectedCategories' listesine eklendi");
+        List<String> actualCategories = new ArrayList<>();
         for (WebElement each : urunlerPage.categories
         ) {
-            tumKategoriler.add(each.getText());
+            actualCategories.add(each.getText());
         }
-
-      Random random = new Random();
-        int sayi = random.nextInt(urunlerPage.categoriesButton.size());
-        System.out.println(sayi + 1);
-        WebElement isaretli = urunlerPage.categoriesButton.get(sayi + 1);
-
-        ReusableMethod.waitFor(3);
-        while (isaretli.isSelected()){
-            if (!isaretli.isSelected()) {
-                actions.sendKeys(Keys.PAGE_DOWN).perform();
-                isaretli.click();
-            }else isaretli.click();
+        extentTest.info("Sitede mevcut olan tum kategoriler 'actualCategories' listesine eklendi");
+        Assert.assertTrue(actualCategories.containsAll(expectedCategories), "istenen urun kategorileri sitede mevcut");
+        extentTest.pass("İstenen kategori isimlerinin sitede mevcut oldugu dogrulandi");
+        for (WebElement kategori : urunlerPage.categoriesCheckList
+        ) {
+            if (kategori.getText().equals(ConfigReader.getProperty("urunKategori"))) {
+                String attribute = kategori.getAttribute("data-item");
+                for (WebElement buton : urunlerPage.categoriesButton
+                ) {
+                    if (buton.getAttribute("value").equals(attribute)) {
+                        jse.executeScript("arguments[0].click();", buton);
+                        extentTest.info("Istenen herhangi bir urun kategorisine tiklandi");
+                        Assert.assertTrue(buton.isSelected());
+                        extentTest.pass("Urun kategorisine basarili bir sekilde tiklandi");
+                    }
+                }
+            }
         }
+    }
 
-*/
+    @Test(priority = 8)
+    public void TC_008_product_brands() {
+        extentTest = extentReports.createTest("Marka",
+                "Secilen ürünlerin brandini belirlemeliyim");
+        List<String> expectedBrands = new ArrayList<>(Arrays.asList("Elegant Auto Group", "Green Grass", "Node Js",
+                "NS8", "RED", "Skysuite Tech", "Sterling"));
+        extentTest.info("İstenen urun markalari 'expectedBrands' listesine eklendi");
+        List<String> actualBrands = new ArrayList<>();
+        for (WebElement each : urunlerPage.brands
+        ) {
+            actualBrands.add(each.getText());
+        }
+        extentTest.info("Sitede mevcut olan tum kategoriler 'actualBrands' listesine eklendi");
+        Assert.assertTrue(actualBrands.containsAll(expectedBrands), "istenen urun markalari sitede mevcut");
+        extentTest.pass("İstenen marka isimlerinin sitede mevcut oldugu dogrulandi");
+        for (WebElement marka : urunlerPage.brandsCheckList
+        ) {
+            if (marka.getText().equals(ConfigReader.getProperty("urunMarka"))) {
+                String attribute = marka.getAttribute("data-item");
+                for (WebElement buton : urunlerPage.brandsButton
+                ) {
+                    if (buton.getAttribute("value").equals(attribute)) {
+                        jse.executeScript("arguments[0].click();", buton);
+                        extentTest.info("Istenen herhangi bir urun markasina tiklandi");
+                        Assert.assertTrue(buton.isSelected());
+                        extentTest.pass("Urun markasina basarili bir sekilde tiklandi");
+                    }
+                }
+            }
+        }
 
     }
 }
