@@ -1,35 +1,22 @@
 package pages;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import utilities.Driver;
-<<<<<<< HEAD
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
-=======
->>>>>>> 4ec5c0c7321787b68071716ed4794fe63b71670e
+
 
 public class HesabimPage {
 
 
-
-
     public HesabimPage(){
 
-<<<<<<< HEAD
-        PageFactory.initElements(Driver.getDriver(), this);
-
-    }
-=======
 
         PageFactory.initElements(Driver.getDriver(), this);
 
     }
 
->>>>>>> 4ec5c0c7321787b68071716ed4794fe63b71670e
+
     @FindBy(xpath = "//h2[@class='page-title']")
     public WebElement hesabimGorunum;
 
@@ -56,12 +43,7 @@ public class HesabimPage {
     public WebElement storeManagerGorunum;
 
     @FindBy(xpath = "//a[@href='https://tradylinn.com/my-account-2/orders/']")
-<<<<<<< HEAD
-    public WebElement dBOrdersGorunum;
-
-=======
     public static WebElement dBOrdersGorunum;
->>>>>>> 4ec5c0c7321787b68071716ed4794fe63b71670e
 
     @FindBy(xpath = "//a[@href='https://tradylinn.com/my-account-2/downloads/']")
     public WebElement dBDownloadsGorunum;
@@ -87,13 +69,6 @@ public class HesabimPage {
     @FindBy(xpath = "//li[@class='woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--customer-logout']")
     public WebElement dBLogoutGorunum;
 
-<<<<<<< HEAD
-
-
-
-
-=======
->>>>>>> 4ec5c0c7321787b68071716ed4794fe63b71670e
 }
 
 

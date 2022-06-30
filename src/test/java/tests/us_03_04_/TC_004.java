@@ -1,33 +1,21 @@
 package tests.us_03_04_;
 
-<<<<<<< HEAD
+
 import org.testng.annotations.Test;
-import pages.*;
-=======
 import com.github.javafaker.Faker;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
-import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.SepetPage;
 import pages.SepeteUrunEkle;
 import pages.SiparislerPage;
->>>>>>> 4ec5c0c7321787b68071716ed4794fe63b71670e
 import utilities.ConfigReader;
 import utilities.Driver;
 
 public class TC_004 {
     @Test
-<<<<<<< HEAD
-    public static void giris(){
-        LoginPage loginPage=new LoginPage();
-        // 1) kullanici tradylinn anasayfasına gider
-        Driver.getDriver().get(ConfigReader.getProperty("tradylinnUrl"));
 
-        // 2) kullanici hesabım sayfasina tiklar
-        loginPage.hesabim.click();
-=======
     public static void giris() throws InterruptedException {
         LoginPage loginPage = new LoginPage();
         // 1) kullanici tradylinn anasayfasına gider
@@ -35,7 +23,6 @@ public class TC_004 {
 
         // 2) kullanici giriş yap sayfasina tiklar
         loginPage.girisYap.click();
->>>>>>> 4ec5c0c7321787b68071716ed4794fe63b71670e
 
         // 3) kullanici mail ve sifresini girer
         loginPage.mailBox.sendKeys(ConfigReader.getProperty("validEmail"));
@@ -43,26 +30,24 @@ public class TC_004 {
 
         // 4) kullanici giris yap butonuna tiklar
         loginPage.hesabagirisYap.click();
-<<<<<<< HEAD
+
 
         // 5. Kullanıcı 'Siparişlerim sekmesini tıklamalı
         SiparislerPage.orders.click();
-=======
+
         Thread.sleep(10000);
         loginPage.hesabim.click();
 
         // 5. Kullanıcı 'Siparişlerim sekmesini tıklamalı
         SiparislerPage.siparislerButonu.click();
->>>>>>> 4ec5c0c7321787b68071716ed4794fe63b71670e
+
 
         // 6. Kullanıcı 'ürünlere göz at' butonuna tıklamalı
         SiparislerPage.urunlereGozAt.click();
 
-<<<<<<< HEAD
+
         // 7. kullanici 'Sepete ürün eklemeli
-=======
-        // 7. kullanici 'Sepete 5 adet ürün eklemeli
->>>>>>> 4ec5c0c7321787b68071716ed4794fe63b71670e
+
         SepeteUrunEkle.ilkUrunSepeteEkle.click();
         SepeteUrunEkle.ikinciUrunSepeteEkle.click();
         SepeteUrunEkle.ucuncuUrunSepeteEkle.click();
@@ -75,8 +60,7 @@ public class TC_004 {
         // 9. Kullanıcı ödeme sayfasına gidebilmeli
         SepetPage.odemeButonu.click();
 
-<<<<<<< HEAD
-=======
+
         Faker faker = new Faker(); //Adres ve fatura bilgilerini girmek icin bir faker olusturduk.
 //16_Ad kutusuna Adını gir
         SiparislerPage.adKutusu.sendKeys(faker.name().firstName());
@@ -111,6 +95,6 @@ public class TC_004 {
 
         Assert.assertTrue(SiparislerPage.siparisinizAlinmistirYazisi.isDisplayed());
         Driver.closeDriver();
->>>>>>> 4ec5c0c7321787b68071716ed4794fe63b71670e
+
     }
 }

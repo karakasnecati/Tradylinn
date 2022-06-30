@@ -1,7 +1,4 @@
 package pages;
-<<<<<<< Updated upstream
-=======
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -10,13 +7,10 @@ import utilities.Driver;
 import java.util.List;
 import java.util.Random;
 
->>>>>>> Stashed changes
 public class KuponPage {
     public KuponPage() {
         PageFactory.initElements(Driver.getDriver(),this);
     }
-
-
 
 
     public Random rnd = new Random();
