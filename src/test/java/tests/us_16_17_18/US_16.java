@@ -33,6 +33,7 @@ public class US_16 {
     public void US16_TC001(){
 
         musteriPage = new MusteriPage();
+        ReusableMethod.waitFor(5);
         int musteriSayisi=musteriPage.satirlarList.size();
         Assert.assertFalse(musteriPage.satirlarList.isEmpty());
         Assert.assertTrue(musteriSayisi>0);
