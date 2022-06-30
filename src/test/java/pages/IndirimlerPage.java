@@ -9,6 +9,10 @@ import java.util.List;
 
 public class IndirimlerPage {
 
+<<<<<<< HEAD
+
+
+=======
     public IndirimlerPage() {
 
         PageFactory.initElements(Driver.getDriver() ,this);
@@ -23,6 +27,7 @@ public class IndirimlerPage {
 
     @FindBy(className = "attachment-woocommerce_thumbnail size-woocommerce_thumbnail")
     public List<WebElement> urunlerListesi;
+>>>>>>> master
 
 }
 
