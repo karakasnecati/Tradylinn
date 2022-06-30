@@ -3,7 +3,6 @@ package tests.us_16_17_18;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages.MusteriPage;
 import utilities.Driver;
 
 public class US_18 {

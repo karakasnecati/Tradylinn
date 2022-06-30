@@ -1,18 +1,12 @@
 package tests.us_16_17_18;
 
-import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import pages.HesabimPage;
 import pages.LoginPage;
 import pages.MusteriPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethod;
-
-import java.time.Duration;
 import java.util.List;
 
 public class US_16_17_18_methods {

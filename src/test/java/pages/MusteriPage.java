@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import utilities.ConfigReader;
 import utilities.Driver;
 
 import java.util.List;
@@ -13,8 +14,12 @@ public class MusteriPage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
+
     @FindBy(xpath = "//*[text()='Store Manager']")
     public WebElement storeManagerButton;
+
+    @FindBy(xpath = "(//a[text()='Hesabım'])[1]")
+    public WebElement hesabimButonu;
 
     @FindBy(xpath = "(//span[@class='text'])[7]")
     public WebElement costumersButton;
@@ -115,6 +120,8 @@ public class MusteriPage {
 
     @FindBy(xpath = "//thead//tr//th")
     public List<WebElement> refundRequestBaslikList;
+
+
 
 
 }
