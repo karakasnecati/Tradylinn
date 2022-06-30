@@ -13,7 +13,10 @@ public class CrossDriver {
     }
 
     static WebDriver driver;
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
     public static WebDriver getDriver(String browser){
         browser = browser == null ? ConfigReader.getProperty("browser") : browser;
         if (driver==null){
@@ -37,12 +40,8 @@ public class CrossDriver {
                 default:
                     WebDriverManager.chromedriver().setup();
                     driver=new ChromeDriver();
-
             }
-
-
-               }
-
+          }
 
         return driver;
     }
@@ -52,7 +51,6 @@ public class CrossDriver {
             driver.close();
             driver=null;
         }
-
 
     }
 }

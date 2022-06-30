@@ -1,12 +1,12 @@
 package pages;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
+
 public class HesabimPage {
-
-
 
 
     public HesabimPage(){
@@ -15,6 +15,7 @@ public class HesabimPage {
         PageFactory.initElements(Driver.getDriver(), this);
 
     }
+
 
     @FindBy(xpath = "//h2[@class='page-title']")
     public WebElement hesabimGorunum;

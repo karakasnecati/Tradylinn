@@ -24,9 +24,16 @@ public class ReusableMethod {
         File source = ts.getScreenshotAs(OutputType.FILE);
         String target = System.getProperty("user.dir") + "/target/Screenshots/" + name + date + ".png";
         File finalDestination = new File(target);
+<<<<<<< HEAD
         FileUtils.copyFile(source, finalDestination);
         return target;
     }
+=======
+         FileUtils.copyFile(source, finalDestination);
+        return target;
+    }
+
+>>>>>>> master
     public static void switchToWindow(String targetTitle) {
         String origin = Driver.getDriver().getWindowHandle();
         for (String handle : Driver.getDriver().getWindowHandles()) {
@@ -37,10 +44,18 @@ public class ReusableMethod {
         }
         Driver.getDriver().switchTo().window(origin);
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
     public static void hover(WebElement element) {
         Actions actions = new Actions(Driver.getDriver());
         actions.moveToElement(element).perform();
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
     public static List<String> getElementsText(List<WebElement> list) {
         List<String> elemTexts = new ArrayList<>();
         for (WebElement el : list) {
@@ -50,6 +65,10 @@ public class ReusableMethod {
         }
         return elemTexts;
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
     public static List<String> getElementsText(By locator) {
         List<WebElement> elems = Driver.getDriver().findElements(locator);
         List<String> elemTexts = new ArrayList<>();
@@ -60,6 +79,10 @@ public class ReusableMethod {
         }
         return elemTexts;
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
     public static void waitFor(int sec) {
         try {
             Thread.sleep(sec * 1000);
@@ -109,7 +132,7 @@ public class ReusableMethod {
                     "Timeout waiting for Page Load Request to complete after " + timeout + " seconds");
         }
     }
-    //======Fluent Wait====//
+
     public static WebElement fluentWait(final WebElement webElement, int timeout) {
         //FluentWait<WebDriver> wait = new FluentWait<WebDriver>(Driver.getDriver()).withTimeout(timeinsec, TimeUnit.SECONDS).pollingEvery(timeinsec, TimeUnit.SECONDS);
         FluentWait<WebDriver> wait = new FluentWait<WebDriver>(Driver.getDriver())

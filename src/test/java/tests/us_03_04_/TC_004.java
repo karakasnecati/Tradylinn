@@ -1,10 +1,11 @@
 package tests.us_03_04_;
 
+
+import org.testng.annotations.Test;
 import com.github.javafaker.Faker;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
-import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.SepetPage;
 import pages.SepeteUrunEkle;
@@ -14,6 +15,7 @@ import utilities.Driver;
 
 public class TC_004 {
     @Test
+
     public static void giris() throws InterruptedException {
         LoginPage loginPage = new LoginPage();
         // 1) kullanici tradylinn anasayfasına gider
@@ -28,16 +30,24 @@ public class TC_004 {
 
         // 4) kullanici giris yap butonuna tiklar
         loginPage.hesabagirisYap.click();
+
+
+        // 5. Kullanıcı 'Siparişlerim sekmesini tıklamalı
+        SiparislerPage.orders.click();
+
         Thread.sleep(10000);
         loginPage.hesabim.click();
 
         // 5. Kullanıcı 'Siparişlerim sekmesini tıklamalı
         SiparislerPage.siparislerButonu.click();
 
+
         // 6. Kullanıcı 'ürünlere göz at' butonuna tıklamalı
         SiparislerPage.urunlereGozAt.click();
 
-        // 7. kullanici 'Sepete 5 adet ürün eklemeli
+
+        // 7. kullanici 'Sepete ürün eklemeli
+
         SepeteUrunEkle.ilkUrunSepeteEkle.click();
         SepeteUrunEkle.ikinciUrunSepeteEkle.click();
         SepeteUrunEkle.ucuncuUrunSepeteEkle.click();
@@ -49,6 +59,7 @@ public class TC_004 {
 
         // 9. Kullanıcı ödeme sayfasına gidebilmeli
         SepetPage.odemeButonu.click();
+
 
         Faker faker = new Faker(); //Adres ve fatura bilgilerini girmek icin bir faker olusturduk.
 //16_Ad kutusuna Adını gir
@@ -84,5 +95,6 @@ public class TC_004 {
 
         Assert.assertTrue(SiparislerPage.siparisinizAlinmistirYazisi.isDisplayed());
         Driver.closeDriver();
+
     }
 }

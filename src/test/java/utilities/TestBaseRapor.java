@@ -16,6 +16,11 @@ public abstract class TestBaseRapor {
     protected static ExtentReports extentReports;
     protected static ExtentTest extentTest;
     protected static ExtentHtmlReporter extentHtmlReporter;
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> master
     @BeforeTest(alwaysRun = true)
     public void setUpTest() {
         extentReports = new ExtentReports();
@@ -24,12 +29,16 @@ public abstract class TestBaseRapor {
         extentHtmlReporter = new ExtentHtmlReporter(filePath);
         extentReports.attachReporter(extentHtmlReporter);
         extentReports.setSystemInfo("Enviroment", "QA");
-        extentReports.setSystemInfo("Browser", ConfigReader.getProperty("browser")); // chrome, firefox
-        extentReports.setSystemInfo("Automation Engineer", "Zeynep");
+        extentReports.setSystemInfo("Browser", ConfigReader.getProperty("browser"));
+        extentReports.setSystemInfo("Automation Engineer", "Team23");
         extentHtmlReporter.config().setDocumentTitle("Rapor");
         extentHtmlReporter.config().setReportName("TestNG Reports");
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
     @AfterMethod(alwaysRun = true)
     public void tearDownMethod(ITestResult result) throws IOException, IOException {
         if (result.getStatus() == ITestResult.FAILURE) {
@@ -43,6 +52,10 @@ public abstract class TestBaseRapor {
         //Driver.closeDriver();
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
     @AfterTest(alwaysRun = true)
     public void tearDownTest() {
         extentReports.flush();

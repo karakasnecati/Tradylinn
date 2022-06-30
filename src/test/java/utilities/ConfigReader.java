@@ -10,10 +10,13 @@ public class ConfigReader {
 
     static {
         String dosyaYolu="src/configuration.properties";
-
         try {
+<<<<<<< HEAD
             FileInputStream fis=new FileInputStream(dosyaYolu);
             properties=new Properties();
+=======
+            FileInputStream fis=new FileInputStream(dosyaYolu);       properties=new Properties();
+>>>>>>> master
             properties.load(fis);
 
         } catch (FileNotFoundException e) {
@@ -21,7 +24,10 @@ public class ConfigReader {
         } catch (IOException e) {
             e.printStackTrace();
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
     }
 
     public static String getProperty(String key){

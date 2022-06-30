@@ -10,13 +10,20 @@ import org.openqa.selenium.safari.SafariDriver;
 import java.time.Duration;
 
 public class Driver {
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> master
     private Driver(){
 
     }
 
     static WebDriver driver;
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
     public static WebDriver getDriver(){
         if (driver==null){
            switch (ConfigReader.getProperty("browser")){
@@ -39,9 +46,7 @@ public class Driver {
                default:
                    WebDriverManager.chromedriver().setup();
                    driver=new ChromeDriver();
-
            }
-
 
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
@@ -52,7 +57,7 @@ public class Driver {
     }
 
     public static void closeDriver(){
-        if (driver!=null) { // driver'a deger atanmissa
+        if (driver!=null) {
             driver.close();
             driver=null;
         }
