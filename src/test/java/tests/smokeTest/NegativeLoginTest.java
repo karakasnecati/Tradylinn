@@ -5,8 +5,9 @@ import org.testng.annotations.Test;
 import pages.LoginPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.TestBaseRapor;
 
-public class NegativeLoginTest {
+public class NegativeLoginTest extends TestBaseRapor {
     LoginPage loginPage;
     @Test
     public void yanlisSifre() throws InterruptedException {
