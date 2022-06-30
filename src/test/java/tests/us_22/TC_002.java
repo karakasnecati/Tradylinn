@@ -22,7 +22,7 @@ public class TC_002 {
         JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
         jse.executeScript("window.scrollBy(0,700)");
         Thread.sleep(2000);
-        ip.TumunuGorElement.click();
+        ip.tumunuGorLink.click();
         Thread.sleep(2000);
 
         //"03_Kullanici Varsayılan Sıralamayı Tıklar

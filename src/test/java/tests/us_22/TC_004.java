@@ -27,7 +27,7 @@ public class TC_004 {
         JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
         jse.executeScript("window.scrollBy(0,700)");
         Thread.sleep(2000);
-        ip.TumunuGorElement.click();
+        ip.tumunuGorLink.click();
         Thread.sleep(2000);
 
         //03_kullanici Sırala cubugunda "Fiyata göre sırala: Yüksekten düşüğe"

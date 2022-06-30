@@ -1,5 +1,7 @@
 package tests.us_05_06_07;
 
+
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
@@ -11,9 +13,11 @@ import utilities.Driver;
 import utilities.ReusableMethod;
 import utilities.TestBaseRapor;
 
+
 import java.util.*;
 
-public class UrunEkleme extends TestBaseRapor {
+
+    public class UrunEkleme extends TestBaseRapor {
     UrunlerPage urunlerPage = new UrunlerPage();
     Actions actions = new Actions(Driver.getDriver());
     JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
@@ -202,5 +206,6 @@ public class UrunEkleme extends TestBaseRapor {
                 }
             }
         }
+
     }
 }
