@@ -22,7 +22,7 @@ public class LoginPage {
     @FindBy(xpath = "(//button[@name='login'])[1]")
     public WebElement hesabagirisYap;
 
-    @FindBy(xpath = "//li[@id='menu-item-1074']")
+    @FindBy(xpath = "//a[@href='https://tradylinn.com/my-account-2/']")
     public WebElement hesabim;
 
 }
