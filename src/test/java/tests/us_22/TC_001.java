@@ -6,8 +6,9 @@ import org.testng.annotations.Test;
 import pages.IndirimlerPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.TestBaseRapor;
 
-public class TC_001 {
+public class TC_001  {
 
 
     //01_kullanici https://tradylinn.com/ adresine gider
@@ -15,8 +16,8 @@ public class TC_001 {
     @Test
     public void test01() throws InterruptedException {
         Driver.getDriver().get(ConfigReader.getProperty("tradylinnUrl"));
-
         IndirimlerPage tr = new IndirimlerPage();
+
 
 //02_kullanici Tumunu gor e tıkladıgında o kategorideki sayfaya gider
 
@@ -24,9 +25,11 @@ public class TC_001 {
         jse.executeScript("window.scrollBy(0,700)");
 
 
-        Thread.sleep(7000);
-        tr.TumunuGorElement.click();
-        Thread.sleep(7000);
+        Thread.sleep(4000);
+
+        tr.tumunuGorLink.click();
+
+        Thread.sleep(4000);
 
         Assert.assertTrue(Driver.getDriver().getCurrentUrl().toString().contains("indirimli"));
 

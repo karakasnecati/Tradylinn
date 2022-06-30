@@ -16,11 +16,7 @@ public abstract class TestBaseRapor {
     protected static ExtentReports extentReports;
     protected static ExtentTest extentTest;
     protected static ExtentHtmlReporter extentHtmlReporter;
-<<<<<<< HEAD
-=======
 
-
->>>>>>> master
     @BeforeTest(alwaysRun = true)
     public void setUpTest() {
         extentReports = new ExtentReports();
@@ -35,10 +31,7 @@ public abstract class TestBaseRapor {
         extentHtmlReporter.config().setReportName("TestNG Reports");
     }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> master
     @AfterMethod(alwaysRun = true)
     public void tearDownMethod(ITestResult result) throws IOException, IOException {
         if (result.getStatus() == ITestResult.FAILURE) {
@@ -52,10 +45,7 @@ public abstract class TestBaseRapor {
         //Driver.closeDriver();
     }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> master
     @AfterTest(alwaysRun = true)
     public void tearDownTest() {
         extentReports.flush();
