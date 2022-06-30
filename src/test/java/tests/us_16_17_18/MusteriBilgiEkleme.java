@@ -3,7 +3,6 @@ package tests.us_16_17_18;
 import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
@@ -15,7 +14,7 @@ import pages.MusteriPage;
 import utilities.Driver;
 import utilities.ReusableMethod;
 
-public class US_17 {
+public class MusteriBilgiEkleme {
 
     MusteriPage musteriPage;
     Actions actions;
@@ -23,7 +22,7 @@ public class US_17 {
 
     @BeforeMethod
     public void setUp() {
-        US_16_17_18_methods.musteriBolumGiris();
+        Methods.musteriBolumGiris();
     }
     @AfterMethod
     public void tearDown() {

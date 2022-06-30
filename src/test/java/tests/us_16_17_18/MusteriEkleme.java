@@ -12,13 +12,13 @@ import pages.MusteriPage;
 import utilities.Driver;
 import utilities.ReusableMethod;
 
-public class US_16 {
+public class MusteriEkleme {
 
     MusteriPage musteriPage;
 
     @BeforeMethod
     public void setUp() {
-        US_16_17_18_methods.musteriBolumGiris();
+        Methods.musteriBolumGiris();
     }
     @AfterMethod
     public void tearDown() {

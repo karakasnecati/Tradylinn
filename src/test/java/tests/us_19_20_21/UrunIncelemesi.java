@@ -1,4 +1,5 @@
-package tests.us_019_020_021;
+package tests.us_19_20_21;
+
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
@@ -10,17 +11,17 @@ import utilities.ReusableMethod;
 import utilities.TestBaseRapor;
 
 
-public class TC_002 extends TestBaseRapor {
-    IncelemelerPage incelemelerPage ;
+public class UrunIncelemesi extends TestBaseRapor {
+    IncelemelerPage incelemelerPage;
     Actions actions = new Actions(Driver.getDriver());
 
     @Test
     public void test01() throws InterruptedException {
-      extentTest=extentReports.createTest("incelemeler","store manager olarak urunler incelenebilmeli");
-      ReusableMethod.waitFor(10);
+        extentTest = extentReports.createTest("incelemeler", "store manager olarak urunler incelenebilmeli");
+        ReusableMethod.waitFor(10);
         Login.giris();
-      extentTest.info("login olundu");
-     Thread.sleep(3000);
+        extentTest.info("login olundu");
+        Thread.sleep(3000);
         incelemelerPage = new IncelemelerPage();
         incelemelerPage.storeManager.click();
         extentTest.info("store Managera tiklandi");
