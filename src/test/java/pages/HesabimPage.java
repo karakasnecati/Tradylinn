@@ -1,16 +1,25 @@
 package pages;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
+
 public class HesabimPage {
 
+<<<<<<< HEAD
     public HesabimPage() {
+=======
+
+    public HesabimPage(){
+
+>>>>>>> master
 
         PageFactory.initElements(Driver.getDriver(), this);
 
     }
+
 
     @FindBy(xpath = "//h2[@class='page-title']")
     public WebElement hesabimGorunum;
@@ -64,11 +73,14 @@ public class HesabimPage {
     @FindBy(xpath = "//li[@class='woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--customer-logout']")
     public WebElement dBLogoutGorunum;
 
+<<<<<<< HEAD
 
 
 
 
 
+=======
+>>>>>>> master
 }
 
 

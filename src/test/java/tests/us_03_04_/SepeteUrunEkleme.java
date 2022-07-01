@@ -4,7 +4,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
 import pages.SepetPage;
 import pages.SepeteUrunEklePage;
-import pages.SiparislerPage;
 import tests.Login;
 import utilities.Driver;
 import utilities.TestBaseRapor;

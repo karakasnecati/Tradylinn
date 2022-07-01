@@ -6,7 +6,6 @@ import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.SepetPage;
 import pages.SepeteUrunEklePage;
-import pages.SiparislerPage;
 import tests.Login;
 import utilities.Driver;
 import utilities.TestBaseRapor;

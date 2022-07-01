@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="istenen class'lari calistirma " verbose="3">
+    <test name="classlar">
+        <classes>
+            <class name="tests.us_05_06_07.UrunEkleme"></class>
+            <class name="tests.us_08_09_10_11.UrunEkleme2"></class>
+        </classes>
+    </test>
+</suite>

@@ -30,5 +30,4 @@ public class SiparislerPage {
     public WebElement adKutusu;
 
 
-
 }

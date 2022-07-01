@@ -8,22 +8,22 @@ import utilities.Driver;
 import java.util.List;
 
 public class IndirimlerPage {
+
     public IndirimlerPage() {
+
         PageFactory.initElements(Driver.getDriver() ,this);
     }
 
-    @FindBy(xpath = "//*[@id='main']/div/div/div[1]/div/div/div/section/div/div[2]/div/div/div/h2/a")
-    public WebElement TumunuGorElement;
-
-    @FindBy(xpath = "//*[text()='Sırala']")
-    public WebElement SıralaElement;
+    @FindBy(xpath = "(//a[@href='https://tradylinn.com/product-category/indirimli-urunler/'])[4]")
+    public WebElement tumunuGorLink;
 
 
     @FindBy (xpath = "//select[@name='orderby']")
     public WebElement dropdownElment;
 
-    @FindBy(className = "    attachment-woocommerce_thumbnail size-woocommerce_thumbnail")
+    @FindBy(className = "attachment-woocommerce_thumbnail size-woocommerce_thumbnail")
     public List<WebElement> urunlerListesi;
+
 
 }
 

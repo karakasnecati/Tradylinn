@@ -5,7 +5,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
+
 public class SepetPage {
+
 
     public SepetPage() {
         PageFactory.initElements(Driver.getDriver(), "this");
@@ -70,5 +72,6 @@ public class SepetPage {
 
     @FindBy (xpath = "//div[@class='woocommerce-billing-fields']")
     public WebElement faturaDetaylariAlani;
+
 
 }
