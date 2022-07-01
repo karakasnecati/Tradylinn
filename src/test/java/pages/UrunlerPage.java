@@ -198,4 +198,7 @@ public class UrunlerPage {
     @FindBy(xpath = "//input[@id='minorderqtytr']")
     public WebElement minOrderQuantityButonu;
 
+    @FindBy(xpath = "//input[@id='wcfm_products_simple_submit_button']")
+    public WebElement submitButonu;
+
 }
