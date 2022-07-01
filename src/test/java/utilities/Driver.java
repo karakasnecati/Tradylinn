@@ -28,7 +28,7 @@ public class Driver {
                    WebDriverManager.safaridriver().setup();
                    driver=new SafariDriver();
                    break;
-               case "firefox":
+               case "Chrome":
                    WebDriverManager.firefoxdriver().setup();
                    driver=new FirefoxDriver();
                    break;

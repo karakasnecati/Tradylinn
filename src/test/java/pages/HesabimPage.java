@@ -8,9 +8,13 @@ import utilities.Driver;
 
 public class HesabimPage {
 
+<<<<<<< HEAD
+    public HesabimPage() {
+=======
 
     public HesabimPage(){
 
+>>>>>>> master
 
         PageFactory.initElements(Driver.getDriver(), this);
 
@@ -43,7 +47,7 @@ public class HesabimPage {
     public WebElement storeManagerGorunum;
 
     @FindBy(xpath = "//a[@href='https://tradylinn.com/my-account-2/orders/']")
-    public static WebElement dBOrdersGorunum;
+    public WebElement dBOrdersGorunum;
 
     @FindBy(xpath = "//a[@href='https://tradylinn.com/my-account-2/downloads/']")
     public WebElement dBDownloadsGorunum;
@@ -69,6 +73,14 @@ public class HesabimPage {
     @FindBy(xpath = "//li[@class='woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--customer-logout']")
     public WebElement dBLogoutGorunum;
 
+<<<<<<< HEAD
+
+
+
+
+
+=======
+>>>>>>> master
 }
 
 
