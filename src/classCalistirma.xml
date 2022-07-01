@@ -2,8 +2,8 @@
 <suite name="istenen class'lari calistirma " verbose="3">
     <test name="classlar">
         <classes>
-            <class name="tests.us_05_06_07.UrunEkleme"></class>
-            <class name="tests.us_08_09_10_11.UrunEkleme2"></class>
+            <class name="tests.us_16_17_18.MusteriEkleme"></class>
+            <class name="tests.us_16_17_18.MusteriBilgiEkleme"></class>
         </classes>
     </test>
 </suite>

@@ -2,6 +2,7 @@ package tests.us_16_17_18;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import pages.LoginPage;
 import pages.MusteriPage;
 import utilities.ConfigReader;
@@ -62,8 +63,10 @@ public class Methods {
             }
         }else{
             System.out.println("istenen baslik bulunamadi");
+            Assert.assertTrue(tabloBaslikList.contains(requestInformation));
         }
     }
+
 
 
 
