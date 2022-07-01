@@ -1,58 +1,68 @@
 package tests.us_03_04_;
 
 import com.github.javafaker.Faker;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.LoginPage;
 import pages.SepetPage;
-import pages.SepeteUrunEkle;
+import pages.SepeteUrunEklePage;
 import pages.SiparislerPage;
-import utilities.ConfigReader;
+import tests.Login;
 import utilities.Driver;
+import utilities.TestBaseRapor;
 
-public class TC_004 {
+public class SiparisOlusturma extends TestBaseRapor {
+    JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+    SiparislerPage siparislerPage = new SiparislerPage();
+    SepetPage sepetPage = new SepetPage();
+    SepeteUrunEklePage sepeteUrunEklePage = new SepeteUrunEklePage();
+
     @Test
-    public static void giris() throws InterruptedException {
-        LoginPage loginPage = new LoginPage();
+    public void giris() throws InterruptedException {
         // 1) kullanici tradylinn anasayfasına gider
-        Driver.getDriver().get(ConfigReader.getProperty("tradylinnUrl"));
-
         // 2) kullanici giriş yap sayfasina tiklar
-        loginPage.girisYap.click();
-
         // 3) kullanici mail ve sifresini girer
-        loginPage.mailBox.sendKeys(ConfigReader.getProperty("validEmail"));
-        loginPage.passwordBox.sendKeys(ConfigReader.getProperty("validPassword"));
-
         // 4) kullanici giris yap butonuna tiklar
-        loginPage.hesabagirisYap.click();
-        Thread.sleep(10000);
-        loginPage.hesabim.click();
-
+        Login.giris();
         // 5. Kullanıcı 'Siparişlerim sekmesini tıklamalı
-        SiparislerPage.siparislerButonu.click();
+        Driver.getDriver().navigate().to("https://tradylinn.com/my-account-2/orders/");
+        // 6. Kullanıcı 'ürünlere göz at' butonuna tıklamalı
+        //siparislerPage.urunlereGozAt.click();
+        Driver.getDriver().navigate().to("https://tradylinn.com/shop/");
+        // 7. kullanici 'Sepete 5 adet ürün eklemeli
+        for (int i = 0; i < 5; i++) {
+            Thread.sleep(2000);
+            // actions.moveToElement(sepeteUrunEklePage.secilecekUrunListesi.get(i)).perform();
+            //Thread.sleep(2000);
+            //sepeteUrunEklePage.secilecekUrunListesi.get(i).click();
+            js.executeScript("arguments[0].click();", sepeteUrunEklePage.secilecekUrunListesi.get(i));
+        }
+
+        //siparislerPage.siparislerButonu.click();
 
         // 6. Kullanıcı 'ürünlere göz at' butonuna tıklamalı
-        SiparislerPage.urunlereGozAt.click();
+        //siparislerPage.urunlereGozAt.click();
 
         // 7. kullanici 'Sepete 5 adet ürün eklemeli
-        SepeteUrunEkle.ilkUrunSepeteEkle.click();
-        SepeteUrunEkle.ikinciUrunSepeteEkle.click();
-        SepeteUrunEkle.ucuncuUrunSepeteEkle.click();
-        SepeteUrunEkle.dorduncuUrunSepeteEkle.click();
-        SepeteUrunEkle.besinciUrunSepeteEkle.click();
+        /*sepeteUrunEklePage.ilkUrunSepeteEkle.click();
+        sepeteUrunEklePage.ikinciUrunSepeteEkle.click();
+        sepeteUrunEklePage.ucuncuUrunSepeteEkle.click();
+        sepeteUrunEklePage.dorduncuUrunSepeteEkle.click();
+        sepeteUrunEklePage.besinciUrunSepeteEkle.click();*/
 
         // 8. Kullanici Sepete gidebilmeli
-        SepetPage.sepetimButonu.click();
+        Driver.getDriver().navigate().to("https://tradylinn.com/cart/");
 
         // 9. Kullanıcı ödeme sayfasına gidebilmeli
-        SepetPage.odemeButonu.click();
+        //sepetPage.odemeButonu.click();
+        Driver.getDriver().navigate().to("https://tradylinn.com/checkout-2/");
 
         Faker faker = new Faker(); //Adres ve fatura bilgilerini girmek icin bir faker olusturduk.
-//16_Ad kutusuna Adını gir
-        SiparislerPage.adKutusu.sendKeys(faker.name().firstName());
+//Ad kutusuna Adını gir
+        siparislerPage.adKutusu.click();
+        siparislerPage.adKutusu.sendKeys(faker.name().firstName());
         Actions actions = new Actions(Driver.getDriver()); //diğer bilgileri locate almadan yazabilmek icin actions olusturduk
         actions.sendKeys(Keys.TAB)
                 .sendKeys(faker.name().lastName()) //17_Soyad kutusuna soyadını gir
@@ -76,13 +86,13 @@ public class TC_004 {
                 .sendKeys(Keys.TAB)
                 .sendKeys(faker.address().fullAddress()).perform(); //26_Teslimat adresi kutusuna adres gir
 
-        //27_"Siparişi Onayla" butonuna tıkla
-        SiparislerPage.siparisiOnaylaButton.click();
-//28_Siparişin onaylandığını test et
-//"Teşekkür ederiz. Siparişiniz alınmıştır" yazisi ekranda görünüyorsa
-//siparis onaylanmıs demektir.
+        //"Siparişi Onayla" butonuna tıkla
+        siparislerPage.siparisiOnaylaButton.click();
+        //Siparişin onaylandığını test et
+        //"Teşekkür ederiz. Siparişiniz alınmıştır" yazisi ekranda görünüyorsa
+        //siparis onaylanmıs demektir.
 
-        Assert.assertTrue(SiparislerPage.siparisinizAlinmistirYazisi.isDisplayed());
+        Assert.assertTrue(siparislerPage.siparisinizAlinmistirYazisi.isDisplayed());
         Driver.closeDriver();
     }
 }

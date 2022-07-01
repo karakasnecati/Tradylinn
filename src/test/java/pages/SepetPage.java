@@ -12,63 +12,63 @@ public class SepetPage {
     }
 
     @FindBy(xpath = "//a[@class='button checkout wc-forward']")
-    public static WebElement odemeButonu;
+    public WebElement odemeButonu;
 
-    @FindBy (xpath = "//span[@class='cart-label']")
-    public static WebElement sepetimButonu;
+    @FindBy (xpath ="(//*[text()='Sepetim'])[1]")
+    public WebElement sepetimButonu;
 
     @FindBy (xpath = "//a[@class='button wc-forward']")
-    public static WebElement sepetiGoruntuleButonu;
+    public WebElement sepetiGoruntuleButonu;
 
     @FindBy (xpath = "//tr[@class='woocomerce-cart-form__cart-item cart-item']")
     public WebElement sepetIcerik;
 
     @FindBy (xpath = "//button[@class='woocommerce-button button woocommerce-form-login__submit']")
-    public static WebElement hesabaGirisYap2;
+    public WebElement hesabaGirisYap2;
 
     @FindBy(xpath = "//th[@class='product-thumbnail']")
-    public static WebElement urunYazisi;
+    public WebElement urunYazisi;
 
     @FindBy(xpath = "//th[@class='product-price']")
-    public static WebElement fiyatYazisi;
+    public WebElement fiyatYazisi;
 
     @FindBy(xpath = "//th[@class='product-quantity']")
-    public static WebElement miktarYazisi;
+    public WebElement miktarYazisi;
 
     @FindBy(xpath = "//th[@class='product-subtotal']")
-    public static WebElement araToplamYazisi;
+    public WebElement araToplamYazisi;
 
     @FindBy(xpath="//button[@name='apply_coupon']")
-    public static WebElement kuponKullanButton;
+    public WebElement kuponKullanButton;
 
     @FindBy(xpath = "(//a[@href='https://tradylinn.com/shop/'])[1]")
-    public static WebElement alisVeriseDevamEtButton;
+    public WebElement alisVeriseDevamEtButton;
 
     @FindBy(xpath = "(//h4[text()='Kargo Bilgileri'])[1]")
-    public static WebElement kargoBilgileriYazisi;
+    public WebElement kargoBilgileriYazisi;
 
     @FindBy(xpath = "//tr[@class='order-total']")
-    public static WebElement toplamBilgisi;
+    public WebElement toplamBilgisi;
 
     @FindBy (xpath = "(//button[@class='quantity-plus w-icon-plus'])[2]")
-    public static WebElement artiButton;
+    public WebElement artiButton;
 
     @FindBy (xpath="//button[@name='update_cart']")
-    public static WebElement sepetiYenileButton;
+    public WebElement sepetiYenileButton;
 
     @FindBy (xpath = "//td[@data-title='Toplam']")
-    public static WebElement toplamFiyatYazisi;
+    public WebElement toplamFiyatYazisi;
 
     @FindBy(xpath = "(//input[@type='number'])[2]")
-    public static WebElement miktarHanesi;
+    public WebElement miktarHanesi;
 
     @FindBy(xpath = "(//button[@class='quantity-minus w-icon-minus'])[2]")
-    public static WebElement eksiButton;
+    public WebElement eksiButton;
 
     @FindBy(xpath = "//a[@class='checkout-button button alt wc-forward']")
-    public static WebElement odemeSayfasinaGitButton;
+    public WebElement odemeSayfasinaGitButton;
 
     @FindBy (xpath = "//div[@class='woocommerce-billing-fields']")
-    public static WebElement faturaDetaylariAlani;
+    public WebElement faturaDetaylariAlani;
 
 }
